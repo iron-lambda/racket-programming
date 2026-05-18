@@ -1,0 +1,96 @@
+{
+  "parts": [
+    {
+      "id": "part-1",
+      "number": 1,
+      "title": "Racket 核心",
+      "subtitle": "Core Racket",
+      "description": "深入理解 Racket 语言的核心概念，包括表达式、函数、数据结构、宏系统等基础知识。",
+      "chapters": [
+        {
+          "slug": "01-introduction",
+          "title": "Racket 简介",
+          "description": "了解 Racket 语言的起源、设计理念以及为什么它值得你花时间学习。"
+        },
+        {
+          "slug": "02-data-types",
+          "title": "基本数据类型",
+          "description": "掌握 Racket 中的数字、字符串、列表、符号等核心数据类型。"
+        },
+        {
+          "slug": "03-functions",
+          "title": "函数与过程",
+          "description": "学习如何定义和使用函数，掌握高阶函数、lambda 表达式等核心概念。"
+        }
+      ]
+    },
+    {
+      "id": "part-2",
+      "number": 2,
+      "title": "Web 开发",
+      "subtitle": "Web Development",
+      "description": "使用 Racket 构建现代 Web 应用，涵盖 HTTP 服务、路由、模板、数据库连接等内容。",
+      "chapters": [
+        {
+          "slug": "01-web-server",
+          "title": "Web 服务器基础",
+          "description": "使用 Racket 的内置 Web 服务器框架构建 HTTP 服务。"
+        }
+      ]
+    },
+    {
+      "id": "part-3",
+      "number": 3,
+      "title": "GUI 开发",
+      "subtitle": "GUI Development",
+      "description": "利用 Racket 强大的 GUI 框架创建桌面应用程序，包括窗口、控件、事件处理等。",
+      "chapters": [
+        {
+          "slug": "01-gui-intro",
+          "title": "GUI 开发入门",
+          "description": "使用 racket/gui 库创建跨平台的桌面应用程序。"
+        }
+      ]
+    },
+    {
+      "id": "part-4",
+      "number": 4,
+      "title": "AI 开发",
+      "subtitle": "AI Development",
+      "description": "探索 Racket 在人工智能领域的应用，包括机器学习、自然语言处理、符号推理等。",
+      "chapters": [
+        {
+          "slug": "01-ai-intro",
+          "title": "AI 开发入门",
+          "description": "探索 Racket 在人工智能领域的应用潜力。"
+        }
+      ]
+    }
+  ],
+  "paths": [
+    {
+      "part": "part-1",
+      "slug": "01-introduction"
+    },
+    {
+      "part": "part-1",
+      "slug": "02-data-types"
+    },
+    {
+      "part": "part-1",
+      "slug": "03-functions"
+    },
+    {
+      "part": "part-2",
+      "slug": "01-web-server"
+    },
+    {
+      "part": "part-3",
+      "slug": "01-gui-intro"
+    },
+    {
+      "part": "part-4",
+      "slug": "01-ai-intro"
+    }
+  ]
+}
