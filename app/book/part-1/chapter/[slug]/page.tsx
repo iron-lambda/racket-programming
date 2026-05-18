@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getParts, getAllChapterPaths } from '@/lib/content'
 import { getChapterContent } from '@/lib/content-server'
+import { mdxComponents } from '@/app/mdx-components'
 import ChapterNav from '@/components/ChapterNav'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
@@ -46,6 +47,7 @@ export default async function ChapterPage({ params }: { params: { slug: string }
       <div className="prose max-w-none">
         <MDXRemote
           source={content}
+          components={mdxComponents}
           options={{
             mdxOptions: {
               remarkPlugins: [remarkGfm],
