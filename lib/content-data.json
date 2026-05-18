@@ -3,94 +3,196 @@
     {
       "id": "part-1",
       "number": 1,
-      "title": "Racket 核心",
-      "subtitle": "Core Racket",
-      "description": "深入理解 Racket 语言的核心概念，包括表达式、函数、数据结构、宏系统等基础知识。",
+      "title": "Racket 语言核心",
+      "subtitle": "Core Language",
+      "description": "从零开始掌握 Racket 的核心概念：S-表达式、数据类型、函数、控制流、列表与递归、结构体以及模块系统。",
       "chapters": [
         {
           "slug": "01-introduction",
           "title": "Racket 简介",
-          "description": "了解 Racket 语言的起源、设计理念以及为什么它值得你花时间学习。"
+          "description": "了解 Racket 的起源、设计理念以及为什么它值得学习。"
         },
         {
-          "slug": "02-data-types",
+          "slug": "02-sexp-syntax",
+          "title": "S-表达式与语法",
+          "description": "深入理解 Racket 的根本语法形式——符号表达式，以及点对和表的化简规则。"
+        },
+        {
+          "slug": "03-data-types",
           "title": "基本数据类型",
           "description": "掌握 Racket 中的数字、字符串、列表、符号等核心数据类型。"
         },
         {
-          "slug": "03-functions",
-          "title": "函数与过程",
-          "description": "学习如何定义和使用函数，掌握高阶函数、lambda 表达式等核心概念。"
+          "slug": "04-functions",
+          "title": "函数与 lambda",
+          "description": "学习函数定义、lambda 表达式、高阶函数、闭包和递归。"
+        },
+        {
+          "slug": "05-control-flow",
+          "title": "控制流",
+          "description": "掌握条件表达式、循环构造、let 绑定和 local 定义。"
+        },
+        {
+          "slug": "06-lists-recursion",
+          "title": "列表与递归",
+          "description": "深入列表操作与递归思维，包括尾递归优化和常用列表高阶函数。"
+        },
+        {
+          "slug": "07-structs-vectors",
+          "title": "结构体与向量",
+          "description": "使用结构体构建自定义数据类型，用向量实现高效随机访问。"
+        },
+        {
+          "slug": "08-modules",
+          "title": "模块系统",
+          "description": "理解 Racket 的模块机制，学会组织代码、管理依赖和提供接口。"
         }
       ]
     },
     {
       "id": "part-2",
       "number": 2,
-      "title": "Web 开发",
-      "subtitle": "Web Development",
-      "description": "使用 Racket 构建现代 Web 应用，涵盖 HTTP 服务、路由、模板、数据库连接等内容。",
+      "title": "高级特性",
+      "subtitle": "Advanced Features",
+      "description": "掌握 Racket 的进阶能力：模式匹配、宏系统、异常处理与契约编程、并发编程以及正则表达式。",
       "chapters": [
         {
-          "slug": "01-web-server",
-          "title": "Web 服务器基础",
-          "description": "使用 Racket 的内置 Web 服务器框架构建 HTTP 服务。"
+          "slug": "01-pattern-matching",
+          "title": "模式匹配",
+          "description": "使用 match 表达式优雅地解构和处理数据。"
+        },
+        {
+          "slug": "02-macros",
+          "title": "宏系统",
+          "description": "理解 Racket 宏的工作原理，学习语法变换和卫生宏。"
+        },
+        {
+          "slug": "03-exceptions-contracts",
+          "title": "异常与契约",
+          "description": "使用异常处理运行时错误，用契约系统保障接口的正确使用。"
+        },
+        {
+          "slug": "04-concurrency",
+          "title": "并发与线程",
+          "description": "探索 Racket 的线程、通道和并发编程模型。"
+        },
+        {
+          "slug": "05-regex-parsing",
+          "title": "正则表达式与解析",
+          "description": "掌握正则表达式操作，以及使用解析器组合子处理结构化文本。"
         }
       ]
     },
     {
       "id": "part-3",
       "number": 3,
-      "title": "GUI 开发",
-      "subtitle": "GUI Development",
-      "description": "利用 Racket 强大的 GUI 框架创建桌面应用程序，包括窗口、控件、事件处理等。",
+      "title": "应用开发实战",
+      "subtitle": "Applied Development",
+      "description": "用 Racket 构建真实应用：Web 服务、数据库操作、RESTful API、桌面 GUI 应用、命令行工具，以及综合项目实战。",
       "chapters": [
         {
-          "slug": "01-gui-intro",
-          "title": "GUI 开发入门",
-          "description": "使用 racket/gui 库创建跨平台的桌面应用程序。"
+          "slug": "01-web-server",
+          "title": "Web 服务器基础",
+          "description": "使用 Racket 内置的 Web 服务器框架构建 HTTP 服务。"
+        },
+        {
+          "slug": "02-routing-templates",
+          "title": "路由与模板",
+          "description": "实现 URL 路由分发，使用模板引擎渲染动态页面。"
+        },
+        {
+          "slug": "03-database",
+          "title": "数据库操作",
+          "description": "连接 SQLite 和 PostgreSQL 数据库，执行查询与管理迁移。"
+        },
+        {
+          "slug": "04-restful-api",
+          "title": "RESTful API",
+          "description": "设计和实现符合 REST 规范的 JSON API，处理认证与错误。"
+        },
+        {
+          "slug": "05-gui-basics",
+          "title": "GUI 基础与布局",
+          "description": "使用 racket/gui 创建跨平台桌面应用，掌握布局管理。"
+        },
+        {
+          "slug": "06-gui-drawing-events",
+          "title": "GUI 绘图与事件",
+          "description": "深入画布绘图、自定义控件和事件驱动编程。"
+        },
+        {
+          "slug": "07-cli-tools",
+          "title": "CLI 工具开发",
+          "description": "使用 command-line 库构建专业的命令行工具。"
+        },
+        {
+          "slug": "08-project",
+          "title": "项目实战",
+          "description": "综合运用所学知识，完成一个完整的真实项目。"
         }
       ]
     },
     {
       "id": "part-4",
       "number": 4,
-      "title": "AI 开发",
-      "subtitle": "AI Development",
-      "description": "探索 Racket 在人工智能领域的应用，包括机器学习、自然语言处理、符号推理等。",
+      "title": "语言设计",
+      "subtitle": "Language Design",
+      "description": "Racket 最独特的能力——用宏和 #lang 创造新的编程语言。从 DSL 理念到类型系统，掌握语言设计的核心思想。",
       "chapters": [
         {
-          "slug": "01-ai-intro",
-          "title": "AI 开发入门",
-          "description": "探索 Racket 在人工智能领域的应用潜力。"
+          "slug": "01-language-design",
+          "title": "语言造语言",
+          "description": "理解 Racket 语言导向编程的核心理念。"
+        },
+        {
+          "slug": "02-macros-deep",
+          "title": "宏深入",
+          "description": "掌握宏的高级技巧：syntax-case、syntax-parse 和编译期计算。"
+        },
+        {
+          "slug": "03-create-lang",
+          "title": "创建 #lang",
+          "description": "从零开始创建一个完整的 #lang 语言实现。"
+        },
+        {
+          "slug": "04-type-systems",
+          "title": "类型系统",
+          "description": "探索 Typed Racket，理解渐进类型系统在 Racket 中的实现。"
+        },
+        {
+          "slug": "05-dsl-practice",
+          "title": "实战：设计一门 DSL",
+          "description": "综合运用宏和语言创建技术，设计并实现一门领域特定语言。"
         }
       ]
     }
   ],
   "paths": [
-    {
-      "part": "part-1",
-      "slug": "01-introduction"
-    },
-    {
-      "part": "part-1",
-      "slug": "02-data-types"
-    },
-    {
-      "part": "part-1",
-      "slug": "03-functions"
-    },
-    {
-      "part": "part-2",
-      "slug": "01-web-server"
-    },
-    {
-      "part": "part-3",
-      "slug": "01-gui-intro"
-    },
-    {
-      "part": "part-4",
-      "slug": "01-ai-intro"
-    }
+    { "part": "part-1", "slug": "01-introduction" },
+    { "part": "part-1", "slug": "02-sexp-syntax" },
+    { "part": "part-1", "slug": "03-data-types" },
+    { "part": "part-1", "slug": "04-functions" },
+    { "part": "part-1", "slug": "05-control-flow" },
+    { "part": "part-1", "slug": "06-lists-recursion" },
+    { "part": "part-1", "slug": "07-structs-vectors" },
+    { "part": "part-1", "slug": "08-modules" },
+    { "part": "part-2", "slug": "01-pattern-matching" },
+    { "part": "part-2", "slug": "02-macros" },
+    { "part": "part-2", "slug": "03-exceptions-contracts" },
+    { "part": "part-2", "slug": "04-concurrency" },
+    { "part": "part-2", "slug": "05-regex-parsing" },
+    { "part": "part-3", "slug": "01-web-server" },
+    { "part": "part-3", "slug": "02-routing-templates" },
+    { "part": "part-3", "slug": "03-database" },
+    { "part": "part-3", "slug": "04-restful-api" },
+    { "part": "part-3", "slug": "05-gui-basics" },
+    { "part": "part-3", "slug": "06-gui-drawing-events" },
+    { "part": "part-3", "slug": "07-cli-tools" },
+    { "part": "part-3", "slug": "08-project" },
+    { "part": "part-4", "slug": "01-language-design" },
+    { "part": "part-4", "slug": "02-macros-deep" },
+    { "part": "part-4", "slug": "03-create-lang" },
+    { "part": "part-4", "slug": "04-type-systems" },
+    { "part": "part-4", "slug": "05-dsl-practice" }
   ]
 }

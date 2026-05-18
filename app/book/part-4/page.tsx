@@ -2,42 +2,49 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { getParts } from '@/lib/content'
 
+const partId = 'part-4'
+
 export default function Part4Page() {
-  const part = getParts().find(p => p.id === 'part-4')!
+  const part = getParts().find(p => p.id === partId)!
 
   return (
     <div>
-      <div className="mb-8">
-        <div className="text-sm text-racket-600 font-medium mb-2">第 4 部分</div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-3">{part.title}</h1>
-        <p className="text-lg text-gray-600">{part.subtitle}</p>
+      <div className="mb-10">
+        <p className="text-xs tracking-widest uppercase text-sand-500 mb-2">
+          第 {part.number} 部分 · {part.subtitle}
+        </p>
+        <h1 className="text-3xl font-bold text-sand-900 tracking-tight">{part.title}</h1>
+        <p className="mt-3 text-sand-600 leading-relaxed">{part.description}</p>
       </div>
 
-      <p className="text-gray-700 leading-relaxed mb-8">{part.description}</p>
-
-      <div className="space-y-3">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">章节列表</h2>
+      <div className="border-t border-sand-200 pt-6">
         {part.chapters.length === 0 ? (
-          <p className="text-gray-500 italic">章节内容正在编写中...</p>
+          <p className="text-sand-500 italic text-sm py-4">章节内容正在编写中...</p>
         ) : (
-          part.chapters.map((ch, i) => (
-            <Link
-              key={ch.slug}
-              href={`/book/part-4/chapter/${ch.slug}`}
-              className="flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:border-racket-300 hover:bg-racket-50 transition-colors group"
-            >
-              <span className="w-8 h-8 rounded-full bg-racket-100 text-racket-700 flex items-center justify-center text-sm font-bold shrink-0">
-                {i + 1}
-              </span>
-              <div className="flex-1">
-                <h3 className="font-medium text-gray-900">{ch.title}</h3>
-                {ch.description && (
-                  <p className="text-sm text-gray-500 mt-0.5">{ch.description}</p>
-                )}
-              </div>
-              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-racket-600 transition-colors" />
-            </Link>
-          ))
+          <div className="divide-y divide-sand-100">
+            {part.chapters.map((ch, i) => (
+              <Link
+                key={ch.slug}
+                href={`/book/${partId}/chapter/${ch.slug}`}
+                className="group flex items-center justify-between py-4 hover:bg-sand-50 -mx-3 px-3 rounded-md transition-colors"
+              >
+                <div className="flex items-start gap-3 min-w-0">
+                  <span className="text-xs text-sand-400 font-mono mt-0.5 shrink-0">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="font-medium text-sand-900 group-hover:text-accent-500 transition-colors">
+                      {ch.title}
+                    </h3>
+                    {ch.description && (
+                      <p className="text-sm text-sand-500 mt-0.5 truncate">{ch.description}</p>
+                    )}
+                  </div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-sand-300 group-hover:text-accent-400 shrink-0 ml-2 transition-colors" />
+              </Link>
+            ))}
+          </div>
         )}
       </div>
     </div>

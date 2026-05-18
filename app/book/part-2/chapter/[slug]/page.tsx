@@ -7,43 +7,41 @@ import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypeHighlight from 'rehype-highlight'
 
+const partId = 'part-2'
+const partMeta = { number: 2, title: '高级特性' }
+
 export async function generateStaticParams() {
   const paths = getAllChapterPaths()
   return paths
-    .filter(p => p.part === 'part-2')
+    .filter(p => p.part === partId)
     .map(p => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const parts = getParts()
-  const part = parts.find(p => p.id === 'part-2')!
+  const part = parts.find(p => p.id === partId)!
   const chapter = part.chapters.find(c => c.slug === params.slug)
   if (!chapter) return { title: '章节未找到' }
-  return { title: `${chapter.title} | 第 2 部分 · Web 开发` }
+  return { title: `${chapter.title} | 第 ${partMeta.number} 部分 · ${partMeta.title}` }
 }
 
 export default async function ChapterPage({ params }: { params: { slug: string } }) {
   const parts = getParts()
-  const part = parts.find(p => p.id === 'part-2')!
+  const part = parts.find(p => p.id === partId)!
   const chapter = part.chapters.find(c => c.slug === params.slug)
 
-  if (!chapter) {
-    notFound()
-  }
+  if (!chapter) notFound()
 
-  const content = getChapterContent('part-2', params.slug)
-
-  if (!content) {
-    notFound()
-  }
+  const content = getChapterContent(partId, params.slug)
+  if (!content) notFound()
 
   return (
     <article>
-      <div className="mb-6 pb-4 border-b border-gray-200">
-        <div className="text-sm text-racket-600 font-medium mb-2">
-          第 2 部分 · {part.title}
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900">{chapter.title}</h1>
+      <div className="mb-8 pb-4 border-b border-sand-200">
+        <p className="text-xs tracking-widest uppercase text-sand-500 mb-2">
+          第 {partMeta.number} 部分 · {partMeta.title}
+        </p>
+        <h1 className="text-3xl font-bold text-sand-900 tracking-tight">{chapter.title}</h1>
       </div>
       <div className="prose max-w-none">
         <MDXRemote
@@ -56,7 +54,7 @@ export default async function ChapterPage({ params }: { params: { slug: string }
           }}
         />
       </div>
-      <ChapterNav currentPart="part-2" currentSlug={params.slug} />
+      <ChapterNav currentPart={partId} currentSlug={params.slug} />
     </article>
   )
 }

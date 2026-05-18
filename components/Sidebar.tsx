@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { getParts } from '@/lib/content'
-import { BookOpen, ChevronDown, ChevronRight } from 'lucide-react'
+import { ChevronDown, ChevronRight } from 'lucide-react'
 import { useState } from 'react'
 
 const parts = getParts()
@@ -22,45 +22,44 @@ export default function Sidebar() {
   }
 
   return (
-    <aside className="w-64 h-screen sticky top-0 overflow-y-auto border-r border-gray-200 bg-white">
-      <div className="p-4 border-b border-gray-200">
-        <Link href="/" className="flex items-center gap-2 text-racket-700 hover:text-racket-800">
-          <BookOpen className="w-5 h-5" />
-          <span className="font-bold text-lg">Racket 编程</span>
+    <aside className="w-64 h-screen sticky top-0 overflow-y-auto border-r border-sand-200 bg-white">
+      <div className="p-5 border-b border-sand-200">
+        <Link href="/" className="text-sand-900 hover:text-accent-500 transition-colors">
+          <span className="font-bold text-base tracking-tight">Racket 编程</span>
         </Link>
       </div>
-      <nav className="p-2">
+      <nav className="p-3">
         {parts.map(part => (
-          <div key={part.id} className="mb-2">
+          <div key={part.id} className="mb-1">
             <button
               onClick={() => togglePart(part.id)}
               className={cn(
-                'w-full flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors',
+                'w-full flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-colors',
                 pathname.startsWith(`/book/${part.id}`)
-                  ? 'bg-racket-50 text-racket-700'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  ? 'text-sand-900'
+                  : 'text-sand-600 hover:text-sand-900 hover:bg-sand-50'
               )}
             >
               {expanded[part.id] ? (
-                <ChevronDown className="w-3.5 h-3.5 shrink-0" />
+                <ChevronDown className="w-3 h-3 shrink-0 text-sand-400" />
               ) : (
-                <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                <ChevronRight className="w-3 h-3 shrink-0 text-sand-400" />
               )}
               <span className="truncate">
                 {part.number}. {part.title}
               </span>
             </button>
             {expanded[part.id] && part.chapters.length > 0 && (
-              <div className="ml-6 mt-1 space-y-0.5">
+              <div className="ml-5 mt-0.5 space-y-0.5 border-l border-sand-200 pl-3">
                 {part.chapters.map(ch => (
                   <Link
                     key={ch.slug}
                     href={`/book/${part.id}/chapter/${ch.slug}`}
                     className={cn(
-                      'block px-3 py-1.5 rounded-md text-sm transition-colors truncate',
+                      'block px-2.5 py-1.5 rounded-md text-sm transition-colors truncate',
                       pathname === `/book/${part.id}/chapter/${ch.slug}`
-                        ? 'bg-racket-100 text-racket-800 font-medium'
-                        : 'text-gray-600 hover:bg-gray-50'
+                        ? 'text-accent-500 font-medium bg-accent-50'
+                        : 'text-sand-600 hover:text-sand-900 hover:bg-sand-50'
                     )}
                   >
                     {ch.title}

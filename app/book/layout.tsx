@@ -7,14 +7,14 @@ export default function BookLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <BookHeader />
       <div className="flex pt-14 lg:pt-0">
         <div className="hidden lg:block">
           <Sidebar />
         </div>
         <main className="flex-1 min-h-screen">
-          <div className="max-w-3xl mx-auto px-6 py-8 lg:py-12">
+          <div className="max-w-prose mx-auto px-6 py-10 lg:py-16">
             {children}
           </div>
         </main>

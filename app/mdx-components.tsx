@@ -3,71 +3,76 @@ import type { MDXComponents } from 'mdx/types'
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: ({ children }) => (
-      <h1 className="text-3xl font-bold text-gray-900 mt-8 mb-4 pb-2 border-b border-gray-200">
+      <h1 className="text-3xl font-bold text-sand-900 mt-10 mb-4">
         {children}
       </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="text-2xl font-semibold text-gray-800 mt-8 mb-3">
+      <h2 className="text-2xl font-semibold text-sand-900 mt-10 mb-3 tracking-tight">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-2">
+      <h3 className="text-lg font-semibold text-sand-800 mt-8 mb-2">
         {children}
       </h3>
     ),
     p: ({ children }) => (
-      <p className="text-gray-700 leading-relaxed mb-4">{children}</p>
+      <p className="text-sand-800 leading-[1.8] mb-4">{children}</p>
     ),
     ul: ({ children }) => (
-      <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">{children}</ul>
+      <ul className="text-sand-800 mb-4 space-y-1.5 list-disc pl-5 marker:text-sand-400">{children}</ul>
     ),
     ol: ({ children }) => (
-      <ol className="list-decimal list-inside text-gray-700 mb-4 space-y-1">{children}</ol>
+      <ol className="text-sand-800 mb-4 space-y-1.5 list-decimal pl-5 marker:text-sand-400">{children}</ol>
     ),
-    li: ({ children }) => <li className="leading-relaxed">{children}</li>,
+    li: ({ children }) => <li className="leading-[1.8] pl-1">{children}</li>,
     code: ({ children, className }) => {
       const isBlock = className?.includes('language-')
       if (isBlock) {
         return (
-          <pre className="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm my-4 font-mono">
+          <pre className="bg-sand-900 text-sand-100 rounded-lg p-5 overflow-x-auto text-sm my-6 font-mono leading-[1.7]">
             <code className={className}>{children}</code>
           </pre>
         )
       }
       return (
-        <code className="bg-gray-100 text-racket-700 px-1.5 py-0.5 rounded text-sm font-mono">
+        <code className="bg-sand-100 text-accent-600 px-1.5 py-0.5 rounded text-[0.875em] font-mono">
           {children}
         </code>
       )
     },
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-racket-400 pl-4 py-2 my-4 bg-racket-50 italic text-gray-700">
+      <blockquote className="border-l-2 border-accent-400 pl-4 py-1 my-6 text-sand-600 italic">
         {children}
       </blockquote>
     ),
     a: ({ href, children }) => (
-      <a href={href} className="text-racket-600 hover:text-racket-800 underline">
+      <a href={href} className="text-accent-500 hover:text-accent-600 underline underline-offset-2 decoration-sand-300 hover:decoration-accent-300 transition-colors">
         {children}
       </a>
     ),
     table: ({ children }) => (
-      <div className="overflow-x-auto my-4">
-        <table className="min-w-full border-collapse border border-gray-300">
+      <div className="overflow-x-auto my-6">
+        <table className="min-w-full border-collapse">
           {children}
         </table>
       </div>
     ),
     th: ({ children }) => (
-      <th className="border border-gray-300 px-4 py-2 bg-gray-100 font-semibold text-gray-800 text-left">
+      <th className="border-b-2 border-sand-300 px-4 py-2 text-left text-sm font-semibold text-sand-700">
         {children}
       </th>
     ),
     td: ({ children }) => (
-      <td className="border border-gray-300 px-4 py-2 text-gray-700">{children}</td>
+      <td className="border-b border-sand-200 px-4 py-2 text-sm text-sand-700">
+        {children}
+      </td>
     ),
-    hr: () => <hr className="my-8 border-gray-200" />,
+    hr: () => <hr className="my-10 border-sand-200" />,
+    strong: ({ children }) => (
+      <strong className="font-semibold text-sand-900">{children}</strong>
+    ),
     ...components,
   }
 }
